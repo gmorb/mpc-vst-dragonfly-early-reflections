@@ -79,3 +79,7 @@ Other custom firmware (for example Hakai), or no `662522` card: put the folder i
 ## Notes
 
 This is an independent port maintained for the MPC OS community. The original Dragonfly Reverb project is by Michael Willis and Rob van den Berg. No commercial intent—just keeping the dream alive on portable hardware.
+
+---
+
+This is part of the Dragonfly Reverb for MPC OS collection, which also includes Hall, Plate, and Room. This repo focuses specifically on the Early Reflections algorithm.
