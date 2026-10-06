@@ -1,10 +1,10 @@
+![Dragonfly Early Reflections on MPC](https://raw.githubusercontent.com/gmorb/mpc-vst-dragonfly/main/docs/screenshots/early.png)
+
 # Dragonfly Early Reflections for MPC OS
 
 An unofficial port of the [Dragonfly Reverb](https://github.com/michaelwillis/dragonfly-reverb) Early Reflections plugin (3.2.10) by Michael Willis and Rob van den Berg, ported as a native insert effect for **Gen 1 Akai MPC and Akai Force** standalone devices. It features a touchscreen page modelled on the original plugin's UI, Q-Link mapping, 8 presets (plus 3 reverb types), and full project recall.
 
 This plugin recreates the first reflections off walls, ceiling, and floor that occur within milliseconds of a direct sound—critical for convincing spatial depth without the washing tail of full reverb. Early reflections alone add realistic room size and intimacy to dry recordings.
-
-![Dragonfly Early Reflections on MPC](https://raw.githubusercontent.com/gmorb/mpc-vst-dragonfly/main/docs/screenshots/early.png)
 
 ## What Are Early Reflections?
 
