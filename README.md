@@ -1,4 +1,4 @@
-![Dragonfly Early Reflections on MPC](https://raw.githubusercontent.com/gmorb/mpc-vst-dragonfly/main/docs/screenshots/early.png)
+![Dragonfly Early Reflections on MPC](https://raw.githubusercontent.com/gmorb/mpc-vst-dragonfly-early-reflections/main/docs/banners/early.png)
 
 # Dragonfly Early Reflections for MPC OS
 
@@ -74,7 +74,7 @@ Other custom firmware (for example Hakai), or no `662522` card: put the folder i
 
 | Early Reflections |
 
-![Dragonfly Early Reflections on MPC](https://raw.githubusercontent.com/gmorb/mpc-vst-dragonfly/main/docs/screenshots/early.png)
+![Dragonfly Early Reflections on MPC](https://raw.githubusercontent.com/gmorb/mpc-vst-dragonfly-early-reflections/main/docs/banners/early.png)
 
 ## Notes
 
