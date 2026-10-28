@@ -2,84 +2,58 @@
 
 # Dragonfly Early Reflections for MPC OS
 
-An unofficial port of the [Dragonfly Reverb](https://github.com/michaelwillis/dragonfly-reverb) Early Reflections plugin (3.2.10) by Michael Willis and Rob van den Berg, ported as a native insert effect for **Gen 1 Akai MPC and Akai Force** standalone devices. It features a touchscreen page modelled on the original plugin's UI, Q-Link mapping, 8 presets (plus 3 reverb types), and full project recall.
+An unofficial port of the [Dragonfly Reverb](https://github.com/michaelwillis/dragonfly-reverb) **Early Reflections** plugin (3.2.10) by Michael Willis and Rob van den Berg, as a native insert effect for Akai MPC and Akai Force standalone devices, **Gen1** (32-bit: Force, MPC Live, Live II, One, X, Key 61) and **Gen2** (64-bit: MPC Live III, One G2, Key G2). A touchscreen page modelled on the original plugin's UI, Q-Link mapping, the original's presets, and full project recall.
 
-This plugin recreates the first reflections off walls, ceiling, and floor that occur within milliseconds of a direct sound—critical for convincing spatial depth without the washing tail of full reverb. Early reflections alone add realistic room size and intimacy to dry recordings.
+Early reflections only: the first echoes of a space, without a reverb tail, for placing a sound in a room or as the first stage before another reverb. 8 reflection programs.
 
-## What Are Early Reflections?
+The DSP is upstream's own code, compiled with upstream's own flags, and null-tested against upstream's binary: see [Sound](https://github.com/gmorb/mpc-vst-dragonfly/blob/v1.3.0/docs/SOUND.md).
 
-Early reflections are the first discrete echoes of sound reflecting off nearby surfaces—walls, ceiling, floor—before the dense, diffuse tail of reverb begins. They arrive within the first 50–100ms after the direct sound and are essential for conveying the size, shape, and character of a space. Unlike late reverb tails, early reflections preserve transient clarity while adding spatial cues that our brains interpret as room dimensions.
+It shows up in MPC's plugin list as **Early Refl**, manufacturer **Dragonfly**.
 
-Early reflections are one of the most subtle yet powerful tools in mixing, especially suited for:
-
-- **Acoustic instruments**: Adds realistic room character without washing out transients
-- **Vocals**: Creates intimate, close-mic room ambience that preserves lyrical clarity
-- **Drums**: Simulates the sound of drums in a small room, adding natural spatial cues
-- **Piano and guitar**: Authenticates dry recordings with believable room reflections
-- **Dialogue and post-production**: Matches recorded sources to the ambient space they'll be placed in
-- **Electronic music**: Places synthetic elements in realistic spatial contexts
-
-## Controls and Parameters
-
-The Dragonfly Early Reflections interface mirrors the original desktop plugin with a fully functional touchscreen layout and Q-Link assignable parameters:
-
-### Main Pages
-
-- **Decay**: Controls the early reflection tail length from short (0.1s) to medium (0.5s). Adjust for tight rooms to slightly larger spaces.
-- **Pre-Delay**: Sets the time before early reflections begin (0–50ms). Longer pre-delay preserves more transient definition; shorter values glue reflections tightly to the source.
-- **Damping**: Low-pass filters early reflections, simulating sound absorption by soft surfaces. Higher damping creates warmer, more intimate reflections.
-- **Diffusion**: Controls the density of early reflections. Lower values create distinct, discrete echoes; higher values produce smoother, more uniform spatial cues.
-- **Width**: Adjusts the stereo width of early reflections from mono (centered) to wide (spread stereo field).
-- **Mix**: Blends wet/dry signal from 0% (fully dry) to 100% (fully wet).
-
-### Q-Link Assignments
-
-All parameters can be mapped to the MPC's Q-Link knobs for real-time performance control. Default assignments include Decay, Damping, Pre-Delay, Width, and Mix—adjustable per preset via the Q-Link menu.
-
-### Reverb Types
-
-Three distinct early reflection tonal profiles are available, selectable from the preset menu:
-
-1. **Type A (Small Room)**: Tight, intimate reflections with fast decay—ideal for vocal tracking and acoustic guitar
-2. **Type B (Medium Room)**: Balanced reflections with moderate width and decay—versatile for drums and mixed sources
-3. **Type C (Large Room)**: Extended reflections with wider stereo field—suited for ambient recordings and spatial experimentation
-
-### Preset System
-
-Eight user presets are provided, spanning:
-
-- **Studio reflections**: Tight, dry, and controlled—perfect for close-mic vocals
-- **Live reflections**: Natural room cues with moderate width—ideal for band recordings
-- **Acoustic reflections**: Bright, present, with distinct early echoes—suited for guitar and piano
-- **Ambient reflections**: Wider stereo field, smoother tails—great for atmospheric textures
-
-Custom presets can be saved and recalled across sessions. Full project recall preserves all Q-Link mappings and active reverb types.
+This repo is the plugin's listing in the [MPC OS Plugin Catalog](https://sd88me.github.io/mpc-vst-plugins/). **The source code is in [gmorb/mpc-vst-dragonfly](https://github.com/gmorb/mpc-vst-dragonfly)**, which builds all four Dragonfly reverbs; each release here links to the exact source tag it was built from.
 
 ## Install
 
-Two ways, from the same [Releases](../../releases). Use one per device (see [docs/CATALOG.md](docs/CATALOG.md)).
+From the [MPC OS Plugin Catalog](https://sd88me.github.io/mpc-vst-plugins/) (its installers pick the right build for your device), or download from [Releases](../../releases/latest):
 
-**From the [MPC OS Plugin Catalog](https://sd88me.github.io/mpc-vst-plugins/)**: download `<Name>-<version>-mpc-armv7.zip` with an `install.sh`; the zip's `INSTALL.md` has the steps.
+| Device | Download |
+|---|---|
+| Gen1 (32-bit): Force, MPC Live, Live II, One, X, Key 61 | `Early-Refl-<version>-mpc-armv7.zip` |
+| Gen2 (64-bit): MPC Live III, One G2, Key G2 | `Early-Refl-<version>-mpc-aarch64.zip` |
 
-**Force VST plugins distribution**: download `Dragonfly-Reverb-for-MPC-OS-<version>.zip`. It follows the Force VST plugins distribution layout ([docs/DISTRIBUTION.md](docs/DISTRIBUTION.md)): one self-contained folder per plugin.
+Unzip, copy the folder to the device and run `install.sh` as root over SSH (modded firmware or SSH access required); the zip's `INSTALL.md` has the steps, and `uninstall.sh` removes it. The installer refuses the other generation's zip. Both builds have the same parameters and presets, so projects move between generations.
 
-Requires a Gen 1 Akai Force or MPC with SSH access (modded firmware such as MockbaMod) and the distribution's `Synths` folder with `vstscanner.sh`. The steps are written for the **Akai Force with MockbaMod**, which mounts its memory card at `/media/662522`:
+Using the Force VST plugins distribution (`vstscanner.sh`, Gen1)? Use the collection zip from [gmorb/mpc-vst-dragonfly](https://github.com/gmorb/mpc-vst-dragonfly/releases) instead. Use one install method per device: `vstscanner` rebuilds MPC's plugin list and drops plugins added by `install.sh`.
 
-1. Copy the `Dragonfly - VST - Early Reflections` folder into `/media/662522/Synths` (next to `vstscanner.sh`).
-2. On the device: `sh /media/662522/Synths/vstscanner.sh` (afterwards just `vstscanner`). MPC restarts; the plugin is under VST, manufacturer "Dragonfly".
+## Controls
 
-Other custom firmware (for example Hakai), or no `662522` card: put the folder in a `Synths` folder on any drive under `/media` (e.g. `/media/az01-internal/Synths`), find MPC's settings file (`find / -name MPC.settings`), and run `sh <that Synths folder>/vstscanner.sh <settings path>`. The release's README has the full steps, updating from 1.1.x, and troubleshooting.
+| Control | Range | What it does |
+|---|---|---|
+| Dry Level | 0 to 100% | Level of the unprocessed signal |
+| Wet Level | 0 to 100% | Level of the reflections |
+| Program | Abrupt Echo, Backstage Pass, Concert Venue, Damaged Goods, Elevator Pitch, Floor Thirteen, Garage Band, Home Studio | Reflection pattern |
+| Size | 10 to 60 m | Size of the simulated space |
+| Width | 50 to 150% | Stereo width of the reverb |
+| Low Cut | 0 to 200 Hz | Removes low frequencies from the reverb |
+| High Cut | 1000 to 16000 Hz | Removes high frequencies from the reverb |
 
-## Screenshots
+## Programs
 
-| Early Reflections |
+8 reflection programs: Abrupt Echo, Backstage Pass, Concert Venue, Damaged Goods, Elevator Pitch, Floor Thirteen, Garage Band, Home Studio.
 
-![Dragonfly Early Reflections on MPC](https://raw.githubusercontent.com/gmorb/mpc-vst-dragonfly-early-reflections/main/docs/banners/early.png)
+## Q-Links
 
-## Notes
+Q-Link bank: **EARLY** (Dry Level, Wet Level, Size, Width, Low Cut, High Cut, Program).
 
-This is an independent port maintained for the MPC OS community. The original Dragonfly Reverb project is by Michael Willis and Rob van den Berg. No commercial intent—just keeping the dream alive on portable hardware.
+## Tested
 
----
+See [`tested.json`](tested.json): the devices and MPC OS versions each release was tested on.
 
-This is part of the Dragonfly Reverb for MPC OS collection, which also includes Hall, Plate, and Room. This repo focuses specifically on the Early Reflections algorithm.
+## Source, credits and licence
+
+- Source code, build, tests and changelog: [gmorb/mpc-vst-dragonfly](https://github.com/gmorb/mpc-vst-dragonfly) (each release here names its tag).
+- Dragonfly Reverb by Michael Willis and Rob van den Berg; freeverb3 by Teru Kamogashira and others; Noto Sans by Google. Built with [mpc-vst-plugins](https://github.com/sd88me/mpc-vst-plugins).
+- GPL-3.0-or-later ([LICENSE](LICENSE)), as Dragonfly Reverb. The release zips include the licence texts and the component notices.
+- Not affiliated with or endorsed by the Dragonfly Reverb authors or by Akai Professional / inMusic.
+
+Part of Dragonfly Reverb for MPC OS, with [Hall](https://github.com/gmorb/mpc-vst-dragonfly-hall), [Room](https://github.com/gmorb/mpc-vst-dragonfly-room), [Plate](https://github.com/gmorb/mpc-vst-dragonfly-plate) and [Early Reflections](https://github.com/gmorb/mpc-vst-dragonfly-early-reflections).
