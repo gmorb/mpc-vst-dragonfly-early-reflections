@@ -6,9 +6,9 @@ An unofficial port of the [Dragonfly Reverb](https://github.com/michaelwillis/dr
 
 Early reflections only: the first echoes of a space, without a reverb tail, for placing a sound in a room or as the first stage before another reverb. 8 reflection programs.
 
-The DSP is upstream's own code, compiled with upstream's own flags, and null-tested against upstream's binary: see [Sound](https://github.com/gmorb/mpc-vst-dragonfly/blob/v1.3.0/docs/SOUND.md).
+The DSP is upstream's own code, compiled with upstream's own flags, and null-tested against upstream's binary: see [Sound](https://github.com/gmorb/mpc-vst-dragonfly/blob/v1.3.1/docs/SOUND.md).
 
-It shows up in MPC's plugin list as **Early Refl**, manufacturer **Dragonfly**.
+It shows up in MPC's plugin list as **Early Reflections**, manufacturer **Dragonfly**.
 
 This repo is the plugin's listing in the [MPC OS Plugin Catalog](https://sd88me.github.io/mpc-vst-plugins/). **The source code is in [gmorb/mpc-vst-dragonfly](https://github.com/gmorb/mpc-vst-dragonfly)**, which builds all four Dragonfly reverbs; each release here links to the exact source tag it was built from.
 
@@ -18,8 +18,8 @@ From the [MPC OS Plugin Catalog](https://sd88me.github.io/mpc-vst-plugins/) (its
 
 | Device | Download |
 |---|---|
-| Gen1 (32-bit): Force, MPC Live, Live II, One, X, Key 61 | `Early-Refl-<version>-mpc-armv7.zip` |
-| Gen2 (64-bit): MPC Live III, One G2, Key G2 | `Early-Refl-<version>-mpc-aarch64.zip` |
+| Gen1 (32-bit): Force, MPC Live, Live II, One, X, Key 61 | `Early-Reflections-<version>-mpc-armv7.zip` |
+| Gen2 (64-bit): MPC Live III, One G2, Key G2 | `Early-Reflections-<version>-mpc-aarch64.zip` |
 
 Unzip, copy the folder to the device and run `install.sh` as root over SSH (modded firmware or SSH access required); the zip's `INSTALL.md` has the steps, and `uninstall.sh` removes it. The installer refuses the other generation's zip. Both builds have the same parameters and presets, so projects move between generations.
 
